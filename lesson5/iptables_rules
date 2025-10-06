@@ -1,0 +1,9 @@
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+DROP       icmp --  10.211.55.200        0.0.0.0/0            icmptype 8
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
