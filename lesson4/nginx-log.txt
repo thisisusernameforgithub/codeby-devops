@@ -1,0 +1,43 @@
+Script started on 2025-09-29 14:22:29+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="174" LINES="39"]
+root@codeby-agrigorian:~# systemctl disable nginx
+Synchronizing state of nginx.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable nginx
+root@codeby-agrigorian:~# systemctl stop nginx
+root@codeby-agrigorian:~# mcedit /etc/systemd/system/codeby-nginx.service
+
+(failed reverse-i-search)`ena': systemctl ^Cable nginx
+root@codeby-agrigorian:~# systemctl start codeby-nginx.service
+root@codeby-agrigorian:~# systemctl enable codeby-nginx.service
+Created symlink /etc/systemd/system/multi-user.target.wants/codeby-nginx.service → /etc/systemd/system/codeby-nginx.service.
+root@codeby-agrigorian:~# systemctl status codeby-nginx.service
+● codeby-nginx.service - Codeby Nginx Service
+     Loaded: loaded (/etc/systemd/system/codeby-nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-09-29 14:21:00 UTC; 2min 23s ago
+   Main PID: 5185 (nginx)
+      Tasks: 2 (limit: 2221)
+     Memory: 2.6M
+        CPU: 12ms
+     CGroup: /system.slice/codeby-nginx.service
+             ├─5185 "nginx: master process /usr/sbin/nginx"
+             └─5186 "nginx: worker process"
+
+Sep 29 14:21:00 codeby-agrigorian systemd[1]: Starting Codeby Nginx Service...
+Sep 29 14:21:00 codeby-agrigorian systemd[1]: Started Codeby Nginx Service.
+root@codeby-agrigorian:~# cat /etc/systemd/system/codeby-nginx.service
+[Unit]
+Description=Codeby Nginx Service
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStart=/usr/sbin/nginx
+ExecReload=/usr/sbin/nginx -s reload
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.targetroot@codeby-agrigorian:~# exit
+exit
+
+Script done on 2025-09-29 14:23:44+00:00 [COMMAND_EXIT_CODE="0"]

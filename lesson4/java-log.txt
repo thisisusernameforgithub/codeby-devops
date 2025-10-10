@@ -1,0 +1,28 @@
+Script started on 2025-09-29 14:14:20+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="174" LINES="39"]
+root@codeby-agrigorian:~# java --version
+java 17.0.12 2024-07-16 LTS
+Java(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
+root@codeby-agrigorian:~# update-alternatives --config java
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                         Priority   Status
+------------------------------------------------------------
+* 0            /usr/lib/jvm/jdk-17.0.12/bin/java             1700      auto mode
+  1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java   1100      manual mode
+  2            /usr/lib/jvm/jdk-17.0.12/bin/java             1700      manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 1
+update-alternatives: using /usr/lib/jvm/java-11-openjdk-amd64/bin/java to provide /usr/bin/java (java) in manual mode
+root@codeby-agrigorian:~# java --version
+openjdk 11.0.28 2025-07-15
+OpenJDK Runtime Environment (build 11.0.28+6-post-Ubuntu-1ubuntu122.04.1)
+OpenJDK 64-Bit Server VM (build 11.0.28+6-post-Ubuntu-1ubuntu122.04.1, mixed mode, sharing)
+root@codeby-agrigorian:~# java --version
+openjdk 11.0.28 2025-07-15
+OpenJDK Runtime Environment (build 11.0.28+6-post-Ubuntu-1ubuntu122.04.1)
+OpenJDK 64-Bit Server VM (build 11.0.28+6-post-Ubuntu-1ubuntu122.04.1, mixed mode, sharing)
+root@codeby-agrigorian:~# exit
+exit
+
+Script done on 2025-09-29 14:15:12+00:00 [COMMAND_EXIT_CODE="0"]

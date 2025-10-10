@@ -1,0 +1,183 @@
+Script started on 2025-09-29 14:01:00+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="174" LINES="39"]
+root@codeby-agrigorian:~# ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.5 100176 11220 ?        Ss   12:15   0:01 /sbin/init
+root           2  0.0  0.0      0     0 ?        S    12:15   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   12:15   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   12:15   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I<   12:15   0:00 [slub_flushwq]
+root           6  0.0  0.0      0     0 ?        I<   12:15   0:00 [netns]
+root           8  0.0  0.0      0     0 ?        I<   12:15   0:00 [kworker/0:0H-events_highpri]
+root          10  0.0  0.0      0     0 ?        I<   12:15   0:00 [mm_percpu_wq]
+root          11  0.0  0.0      0     0 ?        S    12:15   0:00 [rcu_tasks_rude_]
+root          12  0.0  0.0      0     0 ?        S    12:15   0:00 [rcu_tasks_trace]
+root          13  0.0  0.0      0     0 ?        S    12:15   0:01 [ksoftirqd/0]
+root          14  0.2  0.0      0     0 ?        R    12:15   0:15 [rcu_sched]
+root          15  0.0  0.0      0     0 ?        S    12:15   0:00 [migration/0]
+root          16  0.0  0.0      0     0 ?        S    12:15   0:00 [idle_inject/0]
+root          18  0.0  0.0      0     0 ?        S    12:15   0:00 [cpuhp/0]
+root          19  0.0  0.0      0     0 ?        S    12:15   0:00 [kdevtmpfs]
+root          20  0.0  0.0      0     0 ?        I<   12:15   0:00 [inet_frag_wq]
+root          21  0.0  0.0      0     0 ?        S    12:15   0:00 [kauditd]
+root          22  0.0  0.0      0     0 ?        S    12:15   0:00 [khungtaskd]
+root          23  0.0  0.0      0     0 ?        S    12:15   0:00 [oom_reaper]
+root          24  0.0  0.0      0     0 ?        I<   12:15   0:00 [writeback]
+root          25  0.0  0.0      0     0 ?        S    12:15   0:00 [kcompactd0]
+root          26  0.0  0.0      0     0 ?        SN   12:15   0:00 [ksmd]
+root          27  0.0  0.0      0     0 ?        SN   12:15   0:00 [khugepaged]
+root          73  0.0  0.0      0     0 ?        I<   12:15   0:00 [kintegrityd]
+root          74  0.0  0.0      0     0 ?        I<   12:15   0:00 [kblockd]
+root          75  0.0  0.0      0     0 ?        I<   12:15   0:00 [blkcg_punt_bio]
+root          76  0.0  0.0      0     0 ?        I<   12:15   0:00 [tpm_dev_wq]
+root          77  0.0  0.0      0     0 ?        I<   12:15   0:00 [ata_sff]
+root          78  0.0  0.0      0     0 ?        I<   12:15   0:00 [md]
+root          79  0.0  0.0      0     0 ?        I<   12:15   0:00 [edac-poller]
+root          80  0.0  0.0      0     0 ?        I<   12:15   0:00 [devfreq_wq]
+root          81  0.0  0.0      0     0 ?        S    12:15   0:00 [watchdogd]
+root          83  0.0  0.0      0     0 ?        I<   12:15   0:00 [kworker/0:1H-kblockd]
+root          85  0.0  0.0      0     0 ?        S    12:15   0:00 [kswapd0]
+root          86  0.0  0.0      0     0 ?        S    12:15   0:00 [ecryptfs-kthrea]
+root          88  0.0  0.0      0     0 ?        I<   12:15   0:00 [kthrotld]
+root          89  0.0  0.0      0     0 ?        I<   12:15   0:00 [acpi_thermal_pm]
+root          91  0.0  0.0      0     0 ?        S    12:15   0:00 [scsi_eh_0]
+root          92  0.0  0.0      0     0 ?        I<   12:15   0:00 [scsi_tmf_0]
+root          93  0.0  0.0      0     0 ?        S    12:15   0:00 [scsi_eh_1]
+root          94  0.0  0.0      0     0 ?        I<   12:15   0:00 [scsi_tmf_1]
+root          96  0.0  0.0      0     0 ?        I<   12:15   0:00 [vfio-irqfd-clea]
+root          97  0.0  0.0      0     0 ?        I<   12:15   0:00 [mld]
+root          98  0.0  0.0      0     0 ?        I<   12:15   0:00 [ipv6_addrconf]
+root         110  0.0  0.0      0     0 ?        I<   12:15   0:00 [kstrp]
+root         113  0.0  0.0      0     0 ?        I<   12:15   0:00 [zswap-shrink]
+root         114  0.0  0.0      0     0 ?        I<   12:15   0:00 [kworker/u3:0]
+root         119  0.0  0.0      0     0 ?        I<   12:15   0:00 [charger_manager]
+root         159  0.0  0.0      0     0 ?        S    12:15   0:00 [hwrng]
+root         160  0.0  0.0      0     0 ?        I<   12:15   0:00 [cryptd]
+root         232  0.0  0.0      0     0 ?        I<   12:15   0:00 [raid5wq]
+root         277  0.0  0.0      0     0 ?        S    12:15   0:00 [jbd2/vda2-8]
+root         278  0.0  0.0      0     0 ?        I<   12:15   0:00 [ext4-rsv-conver]
+root         322  0.0  0.7  31424 15148 ?        S<s  12:15   0:00 /lib/systemd/systemd-journald
+root         348  0.0  0.0      0     0 ?        I<   12:15   0:00 [kaluad]
+root         350  0.0  0.0      0     0 ?        I<   12:15   0:00 [kmpath_rdacd]
+root         353  0.0  0.0      0     0 ?        I<   12:15   0:00 [kmpathd]
+root         355  0.0  0.0      0     0 ?        I<   12:15   0:00 [kmpath_handlerd]
+root         359  0.0  1.3 289312 27096 ?        SLsl 12:15   0:00 /sbin/multipathd -d -s
+root         364  0.0  0.2  25108  5964 ?        Ss   12:15   0:00 /lib/systemd/systemd-udevd
+systemd+     387  0.0  0.6  26332 13664 ?        Ss   12:15   0:00 /lib/systemd/systemd-resolved
+systemd+     389  0.0  0.3  89364  6580 ?        Ssl  12:15   0:00 /lib/systemd/systemd-timesyncd
+root         483  0.0  0.0      0     0 ?        I<   12:15   0:00 [nfit]
+message+     545  0.0  0.2   8544  4916 ?        Ss   12:15   0:00 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         555  0.0  0.9  30176 19344 ?        Ss   12:15   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         557  0.0  0.2  80164  4040 ?        Ssl  12:15   0:02 /usr/sbin/qemu-ga
+root         562  0.0  0.3  15368  7756 ?        Ss   12:15   0:00 /lib/systemd/systemd-logind
+root         603  0.0  0.0   3196  1128 tty1     Ss+  12:15   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root         609  0.0  0.4  15436  9260 ?        Ss   12:15   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root         614  0.0  1.0 107260 21580 ?        Ssl  12:15   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root        1216  0.0  0.0      0     0 ?        R    12:47   0:00 [kworker/u2:0-events_unbound]
+root        1238  0.0  0.0      0     0 ?        I    13:32   0:00 [kworker/0:0-cgroup_destroy]
+root        1344  0.0  0.0      0     0 ?        I    13:43   0:00 [kworker/u2:2-events_unbound]
+root        1347  0.0  0.4  16940  9656 ?        Ss   13:43   0:00 /lib/systemd/systemd --user
+root        1348  0.0  0.1 103232  3332 ?        S    13:43   0:00 (sd-pam)
+root        1502  0.0  0.0      0     0 ?        I    13:51   0:00 [kworker/0:2-cgroup_destroy]
+root        1610  0.0  0.0      0     0 ?        I    13:59   0:00 [kworker/u2:1-flush-252:0]
+root        1633  0.0  0.0      0     0 ?        I    14:00   0:00 [kworker/u2:3]
+root        1634  0.0  0.0      0     0 ?        I    14:00   0:00 [kworker/0:1-events]
+root        1635  0.0  0.5  17156 10984 ?        Ss   14:00   0:00 sshd: root@pts/0
+root        1640  0.0  0.2   5052  4192 pts/0    Ss   14:00   0:00 -bash
+root        1648  0.0  0.0   3228  1076 pts/0    S+   14:00   0:00 script ps-log.txt
+root        1649  0.0  0.2   5048  4120 pts/1    Ss   14:00   0:00 bash -i
+root        1652  0.0  0.1   7484  3280 pts/1    R+   14:01   0:00 ps aux
+root@codeby-agrigorian:~# ps -u $(whoami)
+    PID TTY          TIME CMD
+      1 ?        00:00:01 systemd
+      2 ?        00:00:00 kthreadd
+      3 ?        00:00:00 rcu_gp
+      4 ?        00:00:00 rcu_par_gp
+      5 ?        00:00:00 slub_flushwq
+      6 ?        00:00:00 netns
+      8 ?        00:00:00 kworker/0:0H-events_highpri
+     10 ?        00:00:00 mm_percpu_wq
+     11 ?        00:00:00 rcu_tasks_rude_
+     12 ?        00:00:00 rcu_tasks_trace
+     13 ?        00:00:01 ksoftirqd/0
+     14 ?        00:00:15 rcu_sched
+     15 ?        00:00:00 migration/0
+     16 ?        00:00:00 idle_inject/0
+     18 ?        00:00:00 cpuhp/0
+     19 ?        00:00:00 kdevtmpfs
+     20 ?        00:00:00 inet_frag_wq
+     21 ?        00:00:00 kauditd
+     22 ?        00:00:00 khungtaskd
+     23 ?        00:00:00 oom_reaper
+     24 ?        00:00:00 writeback
+     25 ?        00:00:00 kcompactd0
+     26 ?        00:00:00 ksmd
+     27 ?        00:00:00 khugepaged
+     73 ?        00:00:00 kintegrityd
+     74 ?        00:00:00 kblockd
+     75 ?        00:00:00 blkcg_punt_bio
+     76 ?        00:00:00 tpm_dev_wq
+     77 ?        00:00:00 ata_sff
+     78 ?        00:00:00 md
+     79 ?        00:00:00 edac-poller
+     80 ?        00:00:00 devfreq_wq
+     81 ?        00:00:00 watchdogd
+     83 ?        00:00:00 kworker/0:1H-kblockd
+     85 ?        00:00:00 kswapd0
+     86 ?        00:00:00 ecryptfs-kthrea
+     88 ?        00:00:00 kthrotld
+     89 ?        00:00:00 acpi_thermal_pm
+     91 ?        00:00:00 scsi_eh_0
+     92 ?        00:00:00 scsi_tmf_0
+     93 ?        00:00:00 scsi_eh_1
+     94 ?        00:00:00 scsi_tmf_1
+     96 ?        00:00:00 vfio-irqfd-clea
+     97 ?        00:00:00 mld
+     98 ?        00:00:00 ipv6_addrconf
+    110 ?        00:00:00 kstrp
+    113 ?        00:00:00 zswap-shrink
+    114 ?        00:00:00 kworker/u3:0
+    119 ?        00:00:00 charger_manager
+    159 ?        00:00:00 hwrng
+    160 ?        00:00:00 cryptd
+    232 ?        00:00:00 raid5wq
+    277 ?        00:00:00 jbd2/vda2-8
+    278 ?        00:00:00 ext4-rsv-conver
+    322 ?        00:00:00 systemd-journal
+    348 ?        00:00:00 kaluad
+    350 ?        00:00:00 kmpath_rdacd
+    353 ?        00:00:00 kmpathd
+    355 ?        00:00:00 kmpath_handlerd
+    359 ?        00:00:00 multipathd
+    364 ?        00:00:00 systemd-udevd
+    483 ?        00:00:00 nfit
+    555 ?        00:00:00 networkd-dispat
+    557 ?        00:00:02 qemu-ga
+    562 ?        00:00:00 systemd-logind
+    603 tty1     00:00:00 agetty
+    609 ?        00:00:00 sshd
+    614 ?        00:00:00 unattended-upgr
+   1216 ?        00:00:00 kworker/u2:0-events_unbound
+   1238 ?        00:00:00 kworker/0:0-cgroup_destroy
+   1344 ?        00:00:00 kworker/u2:2-events_unbound
+   1347 ?        00:00:00 systemd
+   1348 ?        00:00:00 (sd-pam)
+   1502 ?        00:00:00 kworker/0:2-cgroup_destroy
+   1610 ?        00:00:00 kworker/u2:1-events_unbound
+   1633 ?        00:00:00 kworker/u2:3
+   1634 ?        00:00:00 kworker/0:1-events
+   1635 ?        00:00:00 sshd
+   1640 pts/0    00:00:00 bash
+   1648 pts/0    00:00:00 script
+   1649 pts/1    00:00:00 bash
+   1654 pts/1    00:00:00 ps
+root@codeby-agrigorian:~# top &
+[1] 1655
+root@codeby-agrigorian:~# ps aux | grep top | grep -v grep
+root        1655  0.0  0.1   7340  3216 pts/1    T    14:01   0:00 top
+
+[1]+  Stopped                 top
+root@codeby-agrigorian:~# kill -9 1655
+root@codeby-agrigorian:~# exit
+exit
+
+Script done on 2025-09-29 14:01:46+00:00 [COMMAND_EXIT_CODE="0"]
