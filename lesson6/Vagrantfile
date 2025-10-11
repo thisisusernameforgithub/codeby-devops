@@ -1,0 +1,42 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+### у меня мак c Apple M4 (ARM) пришлось пару вечеров помучиться чтобы завести Vagrant с QEMU...
+
+Vagrant.configure("2") do |config|
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # server
+  config.vm.define "server" do |server|
+    server.vm.box = "perk/ubuntu-2204-arm64"
+    server.vm.hostname = "server"
+
+    server.vm.provider "qemu" do |qemu|
+      qemu.memory = 2048
+      qemu.cpus = 2
+      qemu.gui = false
+      qemu.cpu = "host"
+      qemu.ssh_port = 2222
+    end
+
+    server.vm.synced_folder ".", "/vagrant", type: "rsync"
+    server.vm.provision "shell", path: "script.sh"
+  end
+
+  # client
+  config.vm.define "client" do |client|
+    client.vm.box = "perk/ubuntu-2204-arm64"
+    client.vm.hostname = "client"
+
+    client.vm.provider "qemu" do |qemu|
+      qemu.memory = 2048
+      qemu.cpus = 2
+      qemu.gui = false
+      qemu.cpu = "host"
+      qemu.ssh_port = 2200
+    end
+
+    client.vm.synced_folder ".", "/vagrant", type: "rsync"
+    client.vm.provision "shell", path: "script.sh"
+  end
+end
