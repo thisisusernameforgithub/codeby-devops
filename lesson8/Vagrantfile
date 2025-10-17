@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "spox/ubuntu-arm" # единственный нормально работает в Apple Silicon и провайдером Vmware Fusion
+
+  config.vm.provider :vmware_desktop do |vmware|
+    vmware.gui = true
+    vmware.vmx["ethernet0.virtualdev"] = "vmxnet3"
+  end
+
+# настройка "server"
+  config.vm.define "server" do |server|
+    server.vm.hostname = "server"
+    server.vm.network "private_network", ip: "192.168.56.10"
+    server.vm.provision "shell", path: "script.sh", args: "server 192.168.56.10"
+  end
+
+# настройка "client"
+  config.vm.define "client" do |client|
+    client.vm.hostname = "client"
+    client.vm.network "private_network", ip: "192.168.56.11"
+    client.vm.provision "shell", path: "script.sh", args: "client 192.168.56.10"
+  end
+end
