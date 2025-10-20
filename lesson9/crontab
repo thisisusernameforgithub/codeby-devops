@@ -1,0 +1,2 @@
+0 * * * * /opt/backup.sh
+10 * * * * /opt/rsync_backup.sh
