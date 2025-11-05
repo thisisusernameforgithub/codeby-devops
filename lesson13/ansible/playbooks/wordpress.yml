@@ -1,0 +1,13 @@
+---
+- name: Deploy WordPress with MySQL and Apache
+  hosts: all
+  become: yes
+
+  roles:
+    - mysql
+    - apache
+
+  post_tasks:
+    - name: Display deployment information
+      debug:
+        msg: "WordPress deployed on {{ env_name }} environment. Access at http://{{ ansible_host }}"

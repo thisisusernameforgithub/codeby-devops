@@ -1,0 +1,7 @@
+---
+apache_packages:
+  - httpd
+apache_service: httpd
+apache_user: apache
+apache_group: apache
+apache_document_root: /var/www/html
