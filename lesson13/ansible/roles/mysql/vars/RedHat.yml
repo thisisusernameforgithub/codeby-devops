@@ -1,0 +1,6 @@
+---
+mysql_packages:
+  - mysql-server
+  - mysql
+mysql_service: mysqld
+mysql_socket: /var/lib/mysql/mysql.sock

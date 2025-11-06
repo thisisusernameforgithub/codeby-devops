@@ -1,0 +1,6 @@
+---
+mysql_packages:
+  - mysql-server
+  - mysql-client
+mysql_service: mysql
+mysql_socket: /var/run/mysqld/mysqld.sock
