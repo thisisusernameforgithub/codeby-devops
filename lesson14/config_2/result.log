@@ -1,0 +1,269 @@
+lolka@lolka:~/lesson14/config_2$ yc compute instance create \
+  --name manual-vm \
+  --zone ru-central1-a \
+  --network-interface subnet-name=public-subnet,nat-ip-version=ipv4 \
+  --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,size=10 \
+  --ssh-key ~/.ssh/id_rsa.pub \
+  --cores 2 \
+  --memory 2
+
+done (42s)
+id: fhmt9jhs669irm5m4kmf
+folder_id: b1gfj8c3c2rfpss7gco9
+created_at: "2025-11-24T22:00:36Z"
+name: manual-vm
+zone_id: ru-central1-a
+platform_id: standard-v2
+resources:
+  memory: "2147483648"
+  cores: "2"
+  core_fraction: "100"
+status: RUNNING
+metadata_options:
+  gce_http_endpoint: ENABLED
+  aws_v1_http_endpoint: ENABLED
+  gce_http_token: ENABLED
+  aws_v1_http_token: DISABLED
+boot_disk:
+  mode: READ_WRITE
+  device_name: fhmae70okbhqmbmsossj
+  auto_delete: true
+  disk_id: fhmae70okbhqmbmsossj
+network_interfaces:
+  - index: "0"
+    mac_address: d0:0d:1d:4c:e3:c3
+    subnet_id: e9benkgs002v1cpr4a0b
+    primary_v4_address:
+      address: 10.10.1.5
+      one_to_one_nat:
+        address: 89.169.155.137
+        ip_version: IPV4
+serial_port_settings:
+  ssh_authorization: OS_LOGIN
+gpu_settings: {}
+fqdn: fhmt9jhs669irm5m4kmf.auto.internal
+scheduling_policy: {}
+network_settings:
+  type: STANDARD
+placement_policy: {}
+hardware_generation:
+  legacy_features:
+    pci_topology: PCI_TOPOLOGY_V2
+application: {}
+
+lolka@lolka:~/lesson14/config_2$ yc compute instance list
++----------------------+------------+---------------+---------+----------------+-------------+
+|          ID          |    NAME    |    ZONE ID    | STATUS  |  EXTERNAL IP   | INTERNAL IP |
++----------------------+------------+---------------+---------+----------------+-------------+
+| fhm3k5tve5do8rhmb9fh | public-vm  | ru-central1-a | RUNNING | 89.169.150.73  | 10.10.1.33  |
+| fhmii1dpg11tnd63gdfb | private-vm | ru-central1-a | RUNNING | 62.84.115.21   | 10.10.2.13  |
+| fhmt9jhs669irm5m4kmf | manual-vm  | ru-central1-a | RUNNING | 89.169.155.137 | 10.10.1.5   |
++----------------------+------------+---------------+---------+----------------+-------------+
+
+
+
+
+lolka@lolka:~/lesson14/config_2$ terraform init
+Initializing the backend...
+Initializing provider plugins...
+- Finding latest version of yandex-cloud/yandex...
+- Installing yandex-cloud/yandex v0.171.0...
+- Installed yandex-cloud/yandex v0.171.0 (unauthenticated)
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+╷
+│ Warning: Incomplete lock file information for providers
+│
+│ Due to your customized provider installation methods, Terraform was forced to calculate lock file checksums locally for the
+│ following providers:
+│   - yandex-cloud/yandex
+│
+│ The current .terraform.lock.hcl file only includes checksums for linux_arm64, so Terraform running on another platform will fail
+│ to install these providers.
+│
+│ To calculate additional checksums for another platform, run:
+│   terraform providers lock -platform=linux_amd64
+│ (where linux_amd64 is the platform to generate)
+╵
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+lolka@lolka:~/lesson14/config_2$ terraform import yandex_compute_instance.imported_vm fhm3k5tve5do8rhmb9fh
+yandex_compute_instance.imported_vm: Importing from ID "fhm3k5tve5do8rhmb9fh"...
+yandex_compute_instance.imported_vm: Import prepared!
+  Prepared yandex_compute_instance for import
+yandex_compute_instance.imported_vm: Refreshing state... [id=fhm3k5tve5do8rhmb9fh]
+
+Import successful!
+
+The resources that were imported are shown above. These resources are now in
+your Terraform state and will henceforth be managed by Terraform.
+
+
+
+
+lolka@lolka:~/lesson14/config_2$ terraform state show yandex_compute_instance.imported_vm
+# yandex_compute_instance.imported_vm:
+resource "yandex_compute_instance" "imported_vm" {
+    created_at                = "2025-11-24T21:56:31Z"
+    description               = null
+    folder_id                 = "b1gfj8c3c2rfpss7gco9"
+    fqdn                      = "fhm3k5tve5do8rhmb9fh.auto.internal"
+    gpu_cluster_id            = null
+    hardware_generation       = [
+        {
+            generation2_features = []
+            legacy_features      = [
+                {
+                    pci_topology = "PCI_TOPOLOGY_V1"
+                },
+            ]
+        },
+    ]
+    hostname                  = null
+    id                        = "fhm3k5tve5do8rhmb9fh"
+    labels                    = {}
+    maintenance_grace_period  = null
+    metadata                  = {
+        "ssh-keys" = <<-EOT
+            ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDb8/ArSmsQyDHgsMHOvVaKUUx0X3L0qdToXhI+p9/3/DjJ+6hhnFZmnnGXz7NAQ3izBEzRaP73KcHFKuEL/u2AshTchw2LEAP+OlSjKfYfPBHpQDrNCrjLwr/Vb4XZ77f10lwhOVQI+Ex63QSB0MwUilLHyZvin2KptvdL5NMtECF2SmTNrwe80VAG03xtw5O8O0EHaXzRgnS6dJxusIi7CLLXpxUUpTSleIOGCHpnXEXkJmiwXW9/FzYfR20OpusfdxQeU+M7ytjTVsbm4jmcnFPCcVTDBF1RD8l2NMlyL39nXTGUrcLYShSNo1bCnlmWWZuXrg/GVtbFf8zCr1B/ lolka@lolka
+        EOT
+    }
+    name                      = "public-vm"
+    network_acceleration_type = "standard"
+    platform_id               = "standard-v2"
+    service_account_id        = null
+    status                    = "running"
+    zone                      = "ru-central1-a"
+
+    boot_disk {
+        auto_delete = true
+        device_name = "fhmimnv38k8licmh1m75"
+        disk_id     = "fhmimnv38k8licmh1m75"
+        mode        = "READ_WRITE"
+
+        initialize_params {
+            block_size  = 4096
+            description = null
+            image_id    = "fd8kdq6d0p8sij7h5qe3"
+            kms_key_id  = null
+            name        = null
+            size        = 10
+            snapshot_id = null
+            type        = "network-hdd"
+        }
+    }
+
+    metadata_options {
+        aws_v1_http_endpoint = 1
+        aws_v1_http_token    = 2
+        gce_http_endpoint    = 1
+        gce_http_token       = 1
+    }
+
+    network_interface {
+        index              = 0
+        ip_address         = "10.10.1.33"
+        ipv4               = true
+        ipv6               = false
+        ipv6_address       = null
+        mac_address        = "d0:0d:3a:17:bf:71"
+        nat                = true
+        nat_ip_address     = "89.169.150.73"
+        nat_ip_version     = "IPV4"
+        security_group_ids = [
+            "enp3tfra98l5pojuma1p",
+        ]
+        subnet_id          = "e9benkgs002v1cpr4a0b"
+    }
+
+    placement_policy {
+        host_affinity_rules       = []
+        placement_group_id        = null
+        placement_group_partition = 0
+    }
+
+    resources {
+        core_fraction = 100
+        cores         = 2
+        gpus          = 0
+        memory        = 2
+    }
+
+    scheduling_policy {
+        preemptible = false
+    }
+}
+
+
+
+
+lolka@lolka:~/lesson14/config_2$ terraform plan
+yandex_compute_instance.imported_vm: Refreshing state... [id=fhm3k5tve5do8rhmb9fh]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
+symbols:
+  + create
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # yandex_compute_instance.imported_vm will be updated in-place
+  ~ resource "yandex_compute_instance" "imported_vm" {
+        id                        = "fhm3k5tve5do8rhmb9fh"
+      ~ name                      = "public-vm" -> "imported-vm"
+        # (15 unchanged attributes hidden)
+
+      ~ network_interface {
+          ~ security_group_ids = [
+              - "enp3tfra98l5pojuma1p",
+            ]
+          ~ subnet_id          = "e9benkgs002v1cpr4a0b" -> (known after apply)
+            # (9 unchanged attributes hidden)
+        }
+
+        # (5 unchanged blocks hidden)
+    }
+
+  # yandex_vpc_network.import_network will be created
+  + resource "yandex_vpc_network" "import_network" {
+      + created_at                = (known after apply)
+      + default_security_group_id = (known after apply)
+      + folder_id                 = (known after apply)
+      + id                        = (known after apply)
+      + labels                    = (known after apply)
+      + name                      = "import-network"
+      + subnet_ids                = (known after apply)
+    }
+
+  # yandex_vpc_subnet.import_subnet will be created
+  + resource "yandex_vpc_subnet" "import_subnet" {
+      + created_at     = (known after apply)
+      + folder_id      = (known after apply)
+      + id             = (known after apply)
+      + labels         = (known after apply)
+      + name           = "public-subnet"
+      + network_id     = (known after apply)
+      + v4_cidr_blocks = [
+          + "10.20.1.0/24",
+        ]
+      + v6_cidr_blocks = (known after apply)
+      + zone           = "ru-central1-a"
+    }
+
+Plan: 2 to add, 1 to change, 0 to destroy.
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run
+"terraform apply" now.
